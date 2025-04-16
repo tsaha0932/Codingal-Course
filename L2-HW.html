@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <style>
+        body {
+            background-color: darkcyan;
+        }
+
+        @keyframes drool {
+            0% {
+                background-color: green;
+            }
+
+            20% {
+                background-color: blanchedalmond;
+            }
+
+            40% {
+                background-color: fuchsia;
+            }
+
+            60% {
+                background-color: olive;
+            }
+
+            80% {
+                background-color: aquamarine;
+            }
+
+            100% {
+                background-color: crimson;
+            }
+        }
+
+        div {
+            width: 250px;
+            height: 250px;
+            background-color: green;
+            animation-name: drool;
+            animation-duration: 5s;
+        }
+
+        #grad1 {
+            height: 400px;
+            background-color: blue;
+            background-image: linear-gradient(to top right, blue, white, yellow, pink, azure, crimson, orangered);
+        }
+    </style>
+</head>
+
+<body>
+    <div style="color:black;font-size:50px;">Peekaboo</div>
+    <div id="#grad1" style="text-align: justify;color: brown;font-size:50px;">Woo hoo!</div>
+</body>
+
+</html>
