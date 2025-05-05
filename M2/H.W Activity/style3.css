@@ -1,0 +1,53 @@
+body {
+    font-family: 'Times New Roman', Times, serif;
+    background-color: darkkhaki;
+    color: moccasin;
+}
+
+h1 {
+    color: #58AF;
+}
+
+a {
+    color: rgb(17, 1, 14);
+    text-decoration: none;
+}
+
+a:hover {
+    color: #bb1febd8;
+}
+
+ul>li {
+    font-weight: bold;
+}
+
+h1+p {
+    background-color: #161B22;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+ul li:hover {
+    color: #4F8CC9;
+}
+
+ul li:nth-child(3) {
+    background-color: #21262D;
+}
+
+p:not(:first-of-type) {
+    text-decoration: overline;
+}
+
+ul li::before {
+    content: "🎶";
+}
+
+a::after {
+    content: "🎧";
+}
+
+p::first-letter {
+    font-size: 250%;
+    color: #FF7B72;
+}
