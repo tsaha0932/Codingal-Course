@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+    <h2>Multiplications Using Functions</h2>
+    <p>We can multiply numbers in Javascript using the function of multiplication.</p>
+    <p id="demo"></p>
+
+    <script>
+        function myFunction(a, b) {
+            if (b === undefined) {
+                b = 8;
+            }
+            var result = a * b
+            return result
+        }
+        document.getElementById("demo").innerHTML = myFunction(7);
+    </script>
+</body>
+
+</html>
