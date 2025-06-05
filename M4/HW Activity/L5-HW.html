@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+    <h2>Accessing Values with HTML DOM Structure</h2>
+
+    <p id="myjoin"></p>
+    <p id="originalArray"></p>
+    <p id="myfirstpop"></p>
+    <p id="myfirstpush"></p>
+
+    <script>
+        var colours = ["Red", "Orange", "Blue", "Green", "Yellow"];
+        document.getElementById("myjoin").innerHTML = colours.join(" > ");
+        document.getElementById("originalArray").innerHTML = colours;
+        colours.pop();
+        document.getElementById("myfirstpop").innerHTML = colours;
+        colours.push("Magenta")
+        document.getElementById("myfirstpush").innerHTML = colours;
+    </script>
+</body>
+
+</html>
