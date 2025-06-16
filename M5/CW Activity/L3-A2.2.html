@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+    <P>Multiply every Element in the array by 10
+    <p id="product_value"></p>
+    <button onclick="Ascending()">Ascending Order</button>
+    <script>
+        var numbers = [15, 232, 43, 24, 13.5];
+        function MyFunction(num) {
+            return num * 10 + 100;
+        }
+        var points = numbers.map(MyFunction);
+        function Ascending() {
+            points.sort(function (a, b) { return a - b });
+            document.getElementById("product_value").innerHTML = points;
+        }
+        document.getElementById("product_value").innerHTML = points;
+    </script>
+</body>
+
+</html>
