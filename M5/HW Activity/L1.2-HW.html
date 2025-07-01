@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+    <h2>Methods and Loops</h2>
+    <p id="number"></p>
+    <script>
+        var text = "";
+        var i = 0;
+        while (i < 10) {
+            text = text + "<br>The number is " + i;
+            i++;
+        }
+        document.getElementById("number").innerHTML = text;
+    </script>
+    <p>Current Date</p>
+    <button onclick="myFunction()">Try it</button>
+    <p id="date"></p>
+    <script>
+        function myFunction() {
+            var greeting;
+            var time = new Date().getDate();
+            document.getElementById("date").innerHTML = "Current Date is : " + time;
+        }
+    </script>
+
+    <p id="demo"></p>
+
+    <script>
+        let a = Math.round(2.60);
+        let b = Math.round(2.50);
+
+        document.getElementById("demo").innerHTML =
+            a + "<br>" + b + "<br>";
+    </script>
+</body>
+
+</html>
