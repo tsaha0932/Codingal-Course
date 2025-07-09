@@ -3,3 +3,7 @@ body {
     font-family: "Baloo Tamma 2", cursive;
     scroll-behavior: smooth;
 }
+
+div:hover {
+    text-shadow: 2px 2px 4px rgb(231, 13, 13);
+}
