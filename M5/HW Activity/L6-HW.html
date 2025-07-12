@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script>
+        function validateForm() {
+            var y = document.forms["myForm"]["age"].value;
+            if (y == "") {
+                alert("age must be more than or equal to 18");
+                return false;
+            }
+            else document.write(y + "age submitted");
+        }
+    </script>
+</head>
+
+<body>
+    <form name="myForm" onsubmit="validateAge()">
+        <label>Age:</label>
+        <input type="number" name="age">
+        <input type="submit">
+    </form>
+</body>
+
+</html>
