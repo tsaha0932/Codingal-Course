@@ -1,0 +1,170 @@
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', sans-serif;
+    background-color: #f4f6f8;
+    color: #333;
+    padding: 20px;
+}
+
+.container {
+    max-width: 500px;
+    margin: auto;
+    background-color: #fff;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Header */
+header {
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+header h1 {
+    font-size: 1.8em;
+    color: #2c3e50;
+}
+
+/* Balance */
+.balance-summary {
+    background-color: #34495e;
+    color: #ecf0f1;
+    padding: 20px;
+    border-radius: 8px;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.balance-summary h2 {
+    font-size: 1.2em;
+    margin-bottom: 10px;
+}
+
+.balance-amount {
+    font-size: 2em;
+    font-weight: bold;
+}
+
+/* Form Section */
+.income-expense-input {
+    background-color: #ecf0f1;
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 30px;
+}
+
+.income-expense-input h2 {
+    margin-bottom: 15px;
+    color: #2c3e50;
+}
+
+.input-group {
+    margin-bottom: 15px;
+    display: flex;
+    flex-direction: column;
+}
+
+.input-group label {
+    margin-bottom: 5px;
+    font-weight: 500;
+}
+
+.input-group input,
+.input-group select {
+    padding: 10px;
+    font-size: 1em;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+}
+
+.add-transaction-button {
+    width: 100%;
+    padding: 12px;
+    font-size: 1em;
+    background-color: #27ae60;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.add-transaction-button:hover {
+    background-color: #219150;
+}
+
+/* Transaction History */
+.transaction-history {
+    margin-top: 30px;
+}
+
+.transaction-history h2 {
+    margin-bottom: 15px;
+    color: #2c3e50;
+}
+
+.transactions-list {
+    list-style: none;
+    padding: 0;
+}
+
+.transaction {
+    display: flex;
+    justify-content: space-between;
+    background-color: #f0f3f6;
+    padding: 12px 16px;
+    border-left: 6px solid;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    font-weight: 500;
+}
+
+.transaction.income {
+    border-color: #2ecc71;
+    color: #2d7a45;
+}
+
+.transaction.expense {
+    border-color: #e74c3c;
+    color: #c0392b;
+}
+
+/* Card Sections */
+.card-section {
+    margin-bottom: 25px;
+}
+
+.card-section h2 {
+    margin-bottom: 10px;
+    color: #2c3e50;
+}
+
+.card {
+    background: linear-gradient(135deg, #3a3d98, #6b74d6);
+    color: white;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.15);
+}
+
+.card.credit {
+    background: linear-gradient(135deg, #9b2c2c, #d94a4a);
+}
+
+.card-number {
+    font-size: 1.2em;
+    letter-spacing: 2px;
+    margin-bottom: 10px;
+}
+
+.card-holder,
+.expiry {
+    font-size: 0.9em;
+}
