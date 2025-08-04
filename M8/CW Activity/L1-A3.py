@@ -9,4 +9,4 @@ students = [[1, 'Jean Castro', 'V'], [2, 'Lula Powell', 'V'], [3, 'Brian Howell'
 print("\nOriginal list of lists:")
 print(students)
 print("\nConverted lists to a dictionary:")
-print(text(students))
+print(test(students))
