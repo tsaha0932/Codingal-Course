@@ -25,4 +25,4 @@ def guess_the_number_game():
             print("Invalid input. Please enter a valid number.")
 
 
-guess_the_number_game() #the secret number is 26
+guess_the_number_game() 
