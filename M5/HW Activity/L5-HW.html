@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+    <script>
+        function calculate() {
+            return new Promise(resolve => {
+                setTimeout(() => {
+                    const result = 5 + 10;
+                    resolve(result);
+                }, 2000); // Simulates a delay
+            });
+        }
+
+        async function doTaskCorrect() {
+            const result = await calculate();
+            console.log("Result is:", result);
+        }
+
+        doTaskCorrect();
+    </script>
+</body>
+
+</html>
