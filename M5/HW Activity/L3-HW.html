@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+<script>
+let originalArray = [5, 3, 8, 1, 7];
+
+let mappedArray = originalArray.map(num => num * 2);
+
+console.log("Original Array:", originalArray);
+console.log("Mapped Array (×2):", mappedArray);
+
+function sortAscending() {
+let sortedAsc = [...mappedArray].sort((a, b) => a - b);
+console.log("Ascending Order:", sortedAsc);
+}
+
+function sortDescending() {
+let sortedDesc = [...mappedArray].sort((a, b) => b - a);
+console.log("Descending Order:", sortedDesc);
+}
+
+sortAscending(); 
+sortDescending(); 
+</script>
+</body>
+</html>
