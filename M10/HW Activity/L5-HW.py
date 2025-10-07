@@ -1,4 +1,5 @@
-def find_lcm(x,y):
+def find_lcm(x, y):
+
     if x > y:
         greater = x
     else:
