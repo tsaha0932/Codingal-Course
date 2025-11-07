@@ -1,6 +1,6 @@
 #Write a program to divide 2 numbers without using division operator
 def divide(ourdividend, ourDivisor):
-    sign = (-1 if((ourdividend < 0) ^ (ourDivisor < 0)) e;se 1)
+    sign = (-1 if((ourdividend < 0) ^ (ourDivisor < 0)) else 1)
     ourdividend = abs(ourdividend)
     ourDivisor = abs(ourDivisor)
 
