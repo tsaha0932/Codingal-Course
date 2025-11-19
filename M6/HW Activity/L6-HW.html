@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bank App - Income & Expense Tracker</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f0f0f0;
+            padding: 20px;
+        }
+        .container {
+            width: 400px;
+            background: white;
+            margin: auto;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px gray;
+        }
+        h2 {
+            text-align: center;
+        }
+        input, button {
+            width: 100%;
+            padding: 10px;
+            margin-top: 10px;
+            font-size: 16px;
+        }
+        button {
+            background: #007bff;
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        button:hover {
+            background: #0056b3;
+        }
+        .history {
+            margin-top: 20px;
+            background: #fafafa;
+            padding: 10px;
+            border-left: 4px solid #007bff;
+        }
+        .error {
+            color: red;
+            font-weight: bold;
+        }
+        .balance {
+            margin-top: 15px;
+            font-size: 20px;
+            font-weight: bold;
+            text-align: center;
+        }
+        .income { color: green; }
+        .expense { color: red; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>Bank App</h2>
+
+    <label>Description:</label>
+    <input type="text" id="desc" placeholder="Enter description">
+
+    <label>Amount:</label>
+    <input type="number" id="amount" placeholder="Enter amount">
+
+    <button onclick="addIncome()">Add Income</button>
+    <button onclick="addExpense()">Add Expense</button>
+
+    <p id="errorMsg" class="error"></p>
+
+    <p class="balance">Balance: ₹<span id="balance">0</span></p>
+
+    <div class="history">
+        <h3>Transaction History</h3>
+        <ul id="historyList"></ul>
+    </div>
+</div>
+
+<script>
+    let balance = 0;
+
+    function validateInput() {
+        const desc = document.getElementById("desc").value.trim();
+        const amount = document.getElementById("amount").value;
+
+        const errorMsg = document.getElementById("errorMsg");
+        errorMsg.innerText = ""; 
+
+        if (desc === "") {
+            errorMsg.innerText = "Description cannot be empty!";
+            return false;
+        }
+        if (amount === "" || isNaN(amount) || Number(amount) <= 0) {
+            errorMsg.innerText = "Enter a valid positive amount!";
+            return false;
+        }
+        return true;
+    }
+
+    function addIncome() {
+        if (!validateInput()) return;
+
+        const desc = document.getElementById("desc").value;
+        const amount = Number(document.getElementById("amount").value);
+
+        balance += amount;
+        updateBalance();
+
+        addToHistory(desc, amount, "income");
+    }
+
+    function addExpense() {
+        if (!validateInput()) return;
+
+        const desc = document.getElementById("desc").value;
+        const amount = Number(document.getElementById("amount").value);
+
+        if (amount > balance) {
+            document.getElementById("errorMsg").innerText = "Expense cannot exceed current balance!";
+            return;
+        }
+
+        balance -= amount;
+        updateBalance();
+
+        addToHistory(desc, amount, "expense");
+    }
+
+    function updateBalance() {
+        document.getElementById("balance").innerText = balance;
+    }
+
+    function addToHistory(desc, amount, type) {
+        const list = document.getElementById("historyList");
+        const item = document.createElement("li");
+
+        item.className = type;
+        item.innerHTML = `${desc} - ₹${amount}`;
+
+        list.appendChild(item);
+
+        document.getElementById("desc").value = "";
+        document.getElementById("amount").value = "";
+    }
+</script>
+
+</body>
+</html>
