@@ -1,8 +1,8 @@
 CREATE TABLE students (
     roll_no INT PRIMARY KEY,
-    name VARCHAR(50),
-    course VARCHAR(50),
-    marks INT
+    name TEXT,
+    course TEXT,
+    marks INTEGER
 );
 
 INSERT INTO students VALUES

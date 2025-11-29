@@ -1,9 +1,9 @@
 CREATE TABLE sales (
-    sale_id INT,
-    product VARCHAR(50),
-    category VARCHAR(50),
-    quantity INT,
-    price INT
+    sale_id INTEGER,
+    product TEXT,
+    category TEXT,
+    quantity INTEGER,
+    price INTEGER
 );
 
 INSERT INTO sales VALUES
