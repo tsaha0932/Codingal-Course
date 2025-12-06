@@ -1,16 +1,14 @@
-CREATE TABLE IF NOT EXITS movies (
-  MOVIE_NAME TEXT,
-  GENRE TEXT,
-  RATING REAL 
+CREATE TABLE Employees (
+    EmpID INT,
+    EmpName VARCHAR(50),
+    Department VARCHAR(50),
+    City VARCHAR(50),
+    Salary INT
 );
 
-INSERT INTO movies ( MOVIE_NAME, GENRE, RATING) VALUES
- ('The Fault in our Stars', 'Romance', 4),
- ('My Oxford Year', 'Romance', 4),
- ('Goosebumps', 'Horror', 3),
- ('The Tearsmith', 'Drama', 3),
- ('The Idea of You', 'Romance', 4),
- ('The Woman in Cabin 10', 'Thriller', 3.5);
-
-SELECT * FROM movies;
-
+SELECT DISTINCT EmpName, City, Salary
+FROM Employees
+WHERE City LIKE '%a%'            
+  AND Salary BETWEEN 40000 AND 90000
+  AND EmpName LIKE '_a%'        
+ORDER BY Salary ASC, EmpName;
