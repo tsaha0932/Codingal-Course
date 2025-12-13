@@ -7,9 +7,7 @@ CREATE TABLE IF NOT EXISTS Match (
     Match_ID INTEGER,
     Team1 TEXT,
     Team2 TEXT,
-    Venue TEXT,
-    Runs_Team1 INTEGER,
-    Runs_Team2 INTEGER
+    Venue TEXT
 )
 """)
 
