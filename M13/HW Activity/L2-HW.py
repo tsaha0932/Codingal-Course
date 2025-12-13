@@ -30,9 +30,3 @@ for row in conn.execute("SELECT * FROM Match WHERE Venue = 'Delhi'"):
 print("\nMatches where Team1 scored more than 150:")
 for row in conn.execute("SELECT * FROM Match WHERE Runs_Team1 > 150"):
     print(row)
-
-max_runs = conn.execute("SELECT MAX(Runs_Team1) FROM Match").fetchone()[0]
-print("\nMaximum runs scored by Team1:", max_runs)
-
-min_runs = conn.execute("SELECT MIN(Runs_Team2) FROM Match").fetchone()[0]
-print("Minimum runs scored by Team2:", min_runs)
