@@ -11,10 +11,10 @@ CREATE TABLE IF NOT EXISTS Match (
 )
 """)
 
-conn.execute("INSERT INTO Match VALUES (1,'India','Australia','Delhi',180,170)")
-conn.execute("INSERT INTO Match VALUES (2,'India','England','Mumbai',220,200)")
-conn.execute("INSERT INTO Match VALUES (3,'India','Pakistan','Delhi',140,130)")
-conn.execute("INSERT INTO Match VALUES (4,'Australia','India','Mumbai',200,210)")
+conn.execute("INSERT INTO Match VALUES (1,'India','Australia','Delhi'")
+conn.execute("INSERT INTO Match VALUES (2,'India','England','Mumbai'")
+conn.execute("INSERT INTO Match VALUES (3,'India','Pakistan','Delhi'")
+conn.execute("INSERT INTO Match VALUES (4,'Australia','India','Mumbai'")
 
 conn.commit()
 
