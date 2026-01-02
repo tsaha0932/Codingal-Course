@@ -9,10 +9,10 @@ marks_perc = [(marks / 50) * 100 for marks in students_marks]
 
 #Line chart for raw marks
 def marks_line_chart():
-    plt.plot(students_names, students_marks, marker='o', linestyle='-', color='blue')
+    plt.plot(students_names, students_marks, marker='o', linestyle='dotted', color='blue', ms = 20, mec = 'r')
     plt.title("Students Marks Graph")
     plt.xlabel("Student Names")
-    plt.ylabel("Markss out of 50")
+    plt.ylabel("Marks out of 50")
     plt.grid(True)
     plt.tight_layout()
     plt.show()
