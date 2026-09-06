@@ -1,51 +1,39 @@
-# Mandatory components to be imported
-from flask import Flask, render_template, request
-# To view the flask response, which contains json data
-import json
-# Used for fetching URLs
-import urllib.request
+import mysql.connector
+import requests
+from flask import Flask, render_template
 
-# Name the current component
-app = Flask(__name__)
+app=Flask(__name__)
 
-# This route method binds URL only when submit button is clicked in the POST or GET method. This route URL will be mentioned in form action of html template.
-@app.route('/getweather', methods=['POST','GET'])
-def weather():
-    # check if the method is POST or not
-    if request.method == 'POST':
-        location = request.form['city']
-    # not necessary as the Exception is handled if no exception give any default city name
+@app.route('/login', methods=['GET', 'POST'])
+def login():
+    msg=''
+    if request.method == 'POST' and 'username' in request.form and 'password' in request.form:
+     username = request.form['username']
+     password = request.form['password']
+     mydb = mysql.connector.connect(
+        host="remotemyql.com",
+        user="Rz8hqnldk4",
+        password="nd0wK03xe0",
+        database="Rz8hqnldk4"
+     )
+     mycursor = mydb.cursor()
+     mycursor.execute("SELECT * FROM LoginDetaiiils WHERE Name =%s AND Password = %s", (username, password))
+     account = mycursor.fetchone()
+     if account:
+      print('login success!')
+      name = account[1]
+      id = account[0]
+      msg='Logged in Succesfully'
+      return render_template('index.html', msg=msg, name=name, id=id)
+     else:
+       msg = 'incorrect Credentials. Kindly check'
+       return render_template('login.html', msg=msg)
     else:
-        location = 'chennai'
-    # Assign your api key generated to the new variable
-    api = "ae07ffda44369ef9bc33334bc037c15d"
+     return render_template('login.html')
 
-    try:
-        # call url with location and api key
-        source = urllib.request.urlopen('http://api.openweathermap.org/data/2.5/weather?q='+location+'&appid='+api).read()
-
-        # convert the response into python dictionary
-        response_data = json.loads(source)
-
-        # store the data you needed in an array
-        data = {
-            "country_code": str(response_data['sys']['country']),
-            "temp": str(response_data['main']['temp']) + 'K',
-            "location": str(response_data['name']),
-        }
-
-        # pass the array to html template
-        return render_template('index-2.html', data=data)
-
-    # exception handling
-    except (Exception):
-        # pass the error message that need to be displayed in html template
-        return render_template('index-2.html', error="Give the correct location")
-
-# route method that need to be called on first hit to render my html template
-@app.route('/',)
-def index():
-    return render_template('index-2.html')
-
-# Mention the port where the flask app should run
-app.run(host='0.0.0.0', port=8080)
+@app.route('/logout')
+def logout():
+  #name = ''
+  #id = ''
+  msg = 'Logged out successfully'
+  return render_template('login.html', msg=msg, name-'', id='')
