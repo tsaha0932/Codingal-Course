@@ -1,39 +1,39 @@
-import mysql.connector
-import requests
-from flask import Flask, render_template
-
-app=Flask(__name__)
-
-@app.route('/login', methods=['GET', 'POST'])
-def login():
-    msg=''
-    if request.method == 'POST' and 'username' in request.form and 'password' in request.form:
-     username = request.form['username']
-     password = request.form['password']
-     mydb = mysql.connector.connect(
-        host="remotemyql.com",
-        user="Rz8hqnldk4",
-        password="nd0wK03xe0",
-        database="Rz8hqnldk4"
-     )
-     mycursor = mydb.cursor()
-     mycursor.execute("SELECT * FROM LoginDetaiiils WHERE Name =%s AND Password = %s", (username, password))
-     account = mycursor.fetchone()
-     if account:
-      print('login success!')
-      name = account[1]
-      id = account[0]
-      msg='Logged in Succesfully'
-      return render_template('index.html', msg=msg, name=name, id=id)
-     else:
-       msg = 'incorrect Credentials. Kindly check'
-       return render_template('login.html', msg=msg)
+from flask import Flask, render_template, request
+ 
+app = Flask(__name__)
+ 
+ 
+@app.route("/")
+def home():
+    return render_template("index.html")
+ 
+ 
+@app.route("/track", methods=["POST"])
+def track_water():
+    name = request.form["name"]
+    goal = int(request.form["goal"])
+    glasses = int(request.form["glasses"])
+ 
+    remaining = goal - glasses
+ 
+    if glasses >= goal:
+        message = "Great job! You reached your water intake goal today."
+        status = "Goal completed"
+        remaining = 0
     else:
-     return render_template('login.html')
+        message = "Keep going! You still need to drink more water."
+        status = "Goal not completed"
 
-@app.route('/logout')
-def logout():
-  #name = ''
-  #id = ''
-  msg = 'Logged out successfully'
-  return render_template('login.html', msg=msg, name-'', id='')
+    return render_template(
+        "index.html",
+        name=name,
+        goal=goal,
+        glasses=glasses,
+        remaining=remaining,
+        message=message,
+        status=status
+    )
+ 
+ 
+if __name__ == "__main__":
+    app.run(debug=True)
