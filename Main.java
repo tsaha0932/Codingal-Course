@@ -1,13 +1,23 @@
-class Main{
+class Main {
     public static void main(String[] args) {
-        for(int i=10; i>1; i--){
-            System.out.println("The value of i is: "+i);
-        }
+        //user input process can also be used rather than giving manual inputs
+        String first = "Cod";
+        String second = "ingal";
+        String codingal = first+second;
+        String codingalTrick = "Welcome"+"to"+"Codingal";
+        String codingalCapital = codingal.toUpperCase();
+        String codingalSmall = codingalCapital.toLowerCase();
+        //correct spelling is length not lenght
+        int lengthOfCodingal = codingal.length();
+        int lengthOfCodingalTrick = codingalTrick.length();
+        int sum = lengthOfCodingal+lengthOfCodingalTrick;
 
-        int j=0;
-        while(j<11){
-            System.out.println("The value of j is: "+j);
-            j++;
-        }
+        //Guess the answer before running
+        // a msg can also be added or the output screen if required
+        System.out.println(codingal);
+        System.out.println(codingalTrick);
+        System.out.println(codingalCapital);
+        System.out.println(codingalSmall);
+        System.out.println(sum); 
     }
 }
