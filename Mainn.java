@@ -1,23 +1,37 @@
-class Mainn  {
-    public static void main(String[] args) {
-        
-        //creating an instance of Bicycle
-        //doing some operations
-        Bicycle bicycle = new Bicycle();
-        bicycle.changeGear(2);
-        bicycle.speedUp(3);
-        bicycle.applyBrakes(1);
+//Main.java
+import java.util.Scanner;
+public class Mainn {
+    public static Candidate getCandidateDetails() throws InvalidInternException{
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter the Candidate Details: ");
+        System.out.println("Name: ");
+        String name = sc.next();
 
-        System.out.println("Bicycle present state : ");
-        bicycle.printStates();
+        System.out.println("Gender: ");
+        String gender = sc.next();
 
-        //creating instance of the car
-        Car car = new Car();
-        car.changeGear(1);
-        car.speedUp(4);
-        car.applyBrakes(3);
+        System.out.println("Enter percentage in 10th: ");
+        int percentage = sc.nextInt();
+        if(percentage < 50){
+            throw new InvalidInternException("Registration Failed. Percentage cannot  be less than 50%.");
+        } else {
+            Candidate candidate = new Candidate();
+            candidate.setName(name);
+            candidate.setGender(gender);
+            candidate.setPercentage(percentage);
 
-        System.out.println("Car present state : ");
-        car.printStates();
+            return candidate;
+        }
+    }
+
+    public static void main(String [] args){
+        System.out.println("Welcome to InterHiring Tool");
+
+        try{
+            Candidate candidate = getCandidateDetails();
+            System.out.println("Registration Successful");
+        } catch (InvalidInternException e) {
+            System.out.println(e.getMessage());
+        }
     }
 }

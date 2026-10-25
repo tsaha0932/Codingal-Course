@@ -1,26 +1,25 @@
-interface MyInterface{
-    /* compiler will treat them as:
-    * public abstract void method1();
-    * public abstract void method2();
-    */
-   public void method1();
-   public void method2();
-}
+//activity to understand the use of finally
+import java.util.Scanner;
+public class Main{
+    public static void main(String [] args){
+        Scanner sc = new Scanner(System.in);
 
-class Main implements MyInterface{
-    /* This class must have to implement both the abstract methods
-    * else you will get compilation error
-    * try removing one method and see the error
-     */
-    public void method1(){
-        System.out.println("implementation of method1");
-    }
-    public void method2(){
-        System.out.println("implementation of method2");
-    }
-    public static void main(String[] args) {
-        MyInterface obj = new Main();
-        obj.method1();
-        obj.method2();
+        try{
+            System.out.println("enter two number: ");
+            int x = sc.nextInt();
+            int y = sc.nextInt();
+            int z = x / y;
+            System.out.println(x + " / " + y + " = " + z);
+        } catch (ArithmeticException ex){
+            System.out.println("--- catch block ---");
+            System.out.println(ex.toString());
+        } finally {
+            System.out.println("---- finally block ----");
+            System.out.println("Application Designed & Developed by");
+            System.out.println("team @ Codingal");
+            sc.close();
+        }
+        System.out.println("--- DONE ---");
     }
 }
+//Note * first try running the program with an arithmetic exception then without it and see the difference to understand use of finally
